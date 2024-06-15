@@ -19,17 +19,14 @@ jobs:
       with:
         node-version: '16' # Use the version of Node.js you prefer
 
-    - name: Install create-next-app
-      run: npm install -g create-next-app
-
     - name: Create Next.js app
-      run: create-next-app my-next-app --use-npm --example "https://github.com/vercel/next-learn-starter/tree/master/learn-starter"
+      run: npx create-next-app@latest nextjs-boilerplate --src-dir --use-bun --ts --eslint --tailwind --app --import-alias "@/*"
 
     - name: Move Next.js app to root
       run: |
         shopt -s dotglob
-        mv my-next-app/* .
-        rmdir my-next-app
+        mv nextjs-boilerplate/* .
+        rmdir nextjs-boilerplate
 
     - name: Commit changes
       run: |
