@@ -19,6 +19,9 @@ jobs:
       with:
         node-version: '16' # Use the version of Node.js you prefer
 
+    - name: Install bun
+      run: npm install -g bun
+      
     - name: Create Next.js app
       run: npx create-next-app@latest nextjs-boilerplate --src-dir --use-bun --ts --eslint --tailwind --app --import-alias "@/*"
 
