@@ -1,0 +1,22 @@
+name: Setup Next.js App
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Create Next.js app
+        run: npx create-next-app@latest my-app --ts --eslint --tailwind --app --src-dir --import-alias="@/*"
+
+      - name: Initialize Git
+        run: git init
+        run: git add .
+        run: git commit -m "Initial commit"
